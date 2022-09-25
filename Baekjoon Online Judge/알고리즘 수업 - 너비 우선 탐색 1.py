@@ -28,7 +28,7 @@ import sys
 from collections import deque
 
 n, m, r = map(int, sys.stdin.readline().split())
-graph = [[] for i in range(n+1)]
+graph = [[] for _ in range(n + 1)]
 
 for i in range(m):
     a, b = (map(int, sys.stdin.readline().split()))
@@ -37,16 +37,17 @@ for i in range(m):
 
 for i in graph:
     i.sort()
-visited = [False for i in range(n+1)]
+visited = [False for _ in range(n + 1)]
 q = deque()
 
-#TODO 순서를 따로 저장해서
+
+# TODO 순서를 따로 저장해서
 
 # print(graph)
 def bfs(graph, init):
     visited[init] = True
     q.append(init)
-    if graph[q[0]] == []:
+    if not graph[q[0]]:
         print(0)
         return
 
@@ -54,10 +55,11 @@ def bfs(graph, init):
         now = q.popleft()
         print(now)
         for i in graph[now]:
-            if visited[i] == False:
+            if not visited[i]:
                 visited[i] = True
                 q.append(i)
 
     print(0)
+
 
 bfs(graph, r)
