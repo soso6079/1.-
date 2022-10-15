@@ -15,6 +15,6 @@ for i in range(k1+1):
     d1.append([])
 
 for i in k1:
-
+    pass
 
 print(d1)
